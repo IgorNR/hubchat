@@ -3,7 +3,7 @@ import { WebhookModel } from "../../models/Webhook";
 import { obterNomeEExtensaoDoArquivo, sendMessageFlow } from "../../controllers/MessageController";
 import { IConnections, INodes } from "./DispatchWebHookService";
 import { Request, Response } from "express";
-import { ParamsDictionary } from "express-serve-static-core";
+import { PathParams } from "express-serve-static-core";
 import { ParsedQs } from "qs";
 import CreateContactService from "../ContactServices/CreateContactService";
 import Contact from "../../models/Contact";
@@ -2294,7 +2294,7 @@ function removerNaoLetrasNumeros(texto: string) {
 const sendMessageWhats = async (
   whatsId: number,
   msg: any,
-  req: Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>
+  req: Request<PathParams, any, any, ParsedQs, Record<string, any>>
 ) => {
   sendMessageFlow(whatsId, msg, req);
   return Promise.resolve();
